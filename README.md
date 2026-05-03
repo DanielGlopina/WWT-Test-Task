@@ -29,9 +29,11 @@ This implementation **explicitly uses `shadcn/ui` components** for modal and for
 ## 📸 Screenshots
 
 ### 1) Opened filter modal with selected values
+
 ![Filter modal open](./public/screenshots/filter-modal-open.png)
 
 ### 2) Apply confirmation dialog + resulting JSON on Home page
+
 ![Filter confirm and result](./public/screenshots/filter-confirm-and-result.png)
 
 ## 🛠️ Tech Stack

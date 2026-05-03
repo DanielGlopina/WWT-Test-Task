@@ -71,6 +71,7 @@
 		"*.{ts,tsx}": [
 			"npm run format:file",
 			"npm run lint:file"
-		]
+		],
+		"*.{md,json,yml,yaml}": "npm run format:file"
 	}
 }

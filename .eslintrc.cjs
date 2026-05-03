@@ -6,8 +6,8 @@ module.exports = {
 		'plugin:@typescript-eslint/recommended',
 		'plugin:react-hooks/recommended',
 		'plugin:react/recommended',
-		'plugin:prettier/recommended',
-		'plugin:@tanstack/eslint-plugin-query/recommended'
+		'plugin:@tanstack/eslint-plugin-query/recommended',
+		'prettier'
 	],
 	ignorePatterns: ['dist', '.eslintrc.cjs'],
 	parser: '@typescript-eslint/parser',
@@ -15,7 +15,6 @@ module.exports = {
 	rules: {
 		'react/react-in-jsx-scope': 'off',
 		'react-hooks/exhaustive-deps': 'off',
-		'prettier/prettier': 'warn',
 		'react-refresh/only-export-components': [
 			'warn',
 			{ allowConstantExport: true }
@@ -88,5 +87,17 @@ module.exports = {
 		react: {
 			version: 'detect'
 		}
-	}
+	},
+	overrides: [
+		{
+			files: ['src/components/ui/**/*.{ts,tsx}'],
+			rules: {
+				'prefer-arrow/prefer-arrow-functions': 'off',
+				'func-style': 'off',
+				'i18next/no-literal-string': 'off',
+				'no-implicit-coercion': 'off',
+				eqeqeq: 'off'
+			}
+		}
+	]
 }

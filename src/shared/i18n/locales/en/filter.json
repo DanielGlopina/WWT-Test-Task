@@ -1,1 +1,12 @@
-{}
+{
+	"title": "Filter",
+	"actions": {
+		"open": "Open Modal",
+		"apply": "Apply",
+		"clearAll": "Clear all parameters"
+	},
+	"states": {
+		"loading": "Loading…",
+		"error": "Error loading filters: {{message}}"
+	}
+}

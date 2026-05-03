@@ -1,93 +1,87 @@
-# WinWinTravel
+# WinWinTravel Frontend Tech Task
 
-## Task
+Implementation of the filter modal feature based on the technical task:  
+[Original task repository](https://github.com/WinWin-travel/wwt-frontend-tech-task) 🚀
 
-### What needs to be done
+## ✨ Implemented Functionality
 
-The API provides filter data located in the file `filterData.json`
+- Added a button on the Home page to open the filter modal.
+- Built the filter modal based on `filterData.json`.
+- Implemented prefilled values when reopening the modal (from previously saved filters).
+- Added an `Apply` action with a confirmation dialog.
+- Implemented confirmation flow:
+  - ✅ Confirm: save new values to global state.
+  - ❌ Cancel: keep previously saved values unchanged.
+- Added JSON output of current selected filters on the Home page (debug visibility).
 
-Based on this data, create a filter modal window — [Figma design](https://www.figma.com/file/cnBVURUTntc8peGEfKexoY/WWT-Test-task?type=design&node-id=0%3A1&mode=design&t=GZ0EY5BJ6KB7iy02-1)
+## 🧩 Implementation Details
 
-The design should closely follow the layout. If indentations differ slightly in the layout — make them consistent across the modal
+- **Filter UI:** `src/pages/Home/ui/FilterModal.tsx`, `src/pages/Home/ui/FilterFields.tsx`
+- **Model and types:** `src/pages/Home/model/types.ts`, `src/pages/Home/model/lib.ts`
+- **Global state:** `src/shared/store/store.ts` (zustand)
+- **Filter data query:** `src/shared/api/filterDataQuery.ts` (react-query)
+- **Localization:** `src/shared/i18n/locales/en/filter.json`
 
-The modal window should be opened via a button on the homepage
+## 🎨 UI Library Used
 
-When opening the filter modal, if the user has already selected some data previously, it should be pre-filled in the modal
+This implementation **explicitly uses `shadcn/ui` components** for modal and form-related UI parts (dialog, inputs, checkboxes, buttons, etc.) to keep the UI consistent, reusable, and easy to maintain.
 
-The user should be able to modify the data and click the `Apply` button. This action should open a confirmation dialog
+## 📸 Screenshots
 
-- If the user confirms the changes — the selected data should be saved to the global state (`App`)
-- If the user cancels — keep the previously saved data without applying the new changes
-
-Display the current selected filter data on the homepage in JSON format (no design required, just for debug/visibility)
-
-The project must include a GitHub Action that automatically checks the code
-
-Types:
-
-- `FilterItem` — input data format from API / `filterData.json`
-- `SearchRequestFilter` — output data format to be displayed on the homepage
-
-### What technologies to use
-
-Required:
-
-- Git with `Conventional Commits`
-- Semantic HTML layout
-- React
-- react-query
-- tailwindcss
-- i18n
-- zustand
-
-You may use other technologies already installed in the project, or install additional ones if needed
-
-If you install any new technology, describe why you added it and what it’s used for in some file
-
-### How to submit the task
-
-- Create a **public** copy(not fork) of the repository, preserving the full commit history
-- Complete the task in this private repository
-- Inform HR that the task is complete and ready for review
-
-Also, please let us know upfront whether you would like detailed feedback (what exactly was wrong and a score), or if a simple acceptance or rejection response is sufficient
-
-## How to set up the project
-
-All scripts described below (except for _**dependency installation**_) can be used with pnpm instead of npm. They work the same way
-
-### Installing dependencies
-
-After downloading the project's source code, you need to install the dependencies. To do this, you can use the following command:
-
-```shell
-pnpm i
-# or
-pnpm install
+### 1) Opened filter modal with selected values
+```md
+![Filter modal open](public/screenshots/filter-modal-open.png)
 ```
 
-### Run
+### 2) Apply confirmation dialog + resulting JSON on Home page
+```md
+![Filter confirm and result](public/screenshots/filter-confirm-and-result.png)
+```
 
-To start the project for development, use the script `dev`:
+## 🛠️ Tech Stack
 
-```shell
+- React
+- TypeScript
+- react-query
+- zustand
+- tailwindcss
+- i18n
+- shadcn/ui
+
+## ▶️ Run the Project
+
+### Install dependencies
+
+```bash
+pnpm install
+# or
+npm install
+```
+
+### Development
+
+```bash
+pnpm dev
+# or
 npm run dev
 ```
 
-This script automatically refreshes the page after you make changes in the code and works quickly with `vite`.
-
 ### Build
 
-To compile the project, use the script `build`:
-
-```shell
+```bash
+pnpm build
+# or
 npm run build
 ```
 
-After executing this script, you will have a folder `dist` in which the project's output files will be located, which can be uploaded to hosting.
+### Preview production build
 
-Also, to see how the compiled version of the program looks, you can use the script `preview`.
-
-```shell
+```bash
+pnpm preview
+# or
 npm run preview
 ```
+
+## ✅ CI Checks
+
+The repository includes GitHub Actions for automatic code checks.
